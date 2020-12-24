@@ -14,7 +14,6 @@ const PostCard = (props) => {
     likes,
     comments,
   } = props.post;
-  console.log(props);
 
   const likePost = () => {
     console.log("Like post!!");
