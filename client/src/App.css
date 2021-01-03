@@ -14,3 +14,9 @@
 .ui.teal.buttons .button:focus {
   background-color: #00b5ad;
 }
+
+.single-post-container.ui.grid > .row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}

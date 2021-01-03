@@ -12,8 +12,9 @@ const LikeButton = ({ post: { id, likes, likeCount }, user }) => {
     } else setLiked(false);
   }, [user, likes]);
 
-  const [likePost] = useMutation(LIKE_POST_MUTATION, {
+  const [likePost, { loading }] = useMutation(LIKE_POST_MUTATION, {
     variables: { postId: id },
+    onError(err) {},
   });
 
   const likeButton = user ? (
@@ -33,7 +34,12 @@ const LikeButton = ({ post: { id, likes, likeCount }, user }) => {
   );
 
   return (
-    <Button as="div" labelPosition="right" onClick={likePost}>
+    <Button
+      as="div"
+      labelPosition="right"
+      onClick={likePost}
+      className={loading ? "loading" : ""}
+    >
       {likeButton}
       <Label as="a" basic color="teal" pointing="left">
         {likeCount}
